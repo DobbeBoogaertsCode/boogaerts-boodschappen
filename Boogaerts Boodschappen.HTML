@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boogaerts Boodschappen</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
+
+    header {
+      background: #0b3a75;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+
+    .container { padding: 40px 20px; max-width: 1100px; margin: auto; }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+    img { width: 100%; border-radius: 12px; }
+
+    .card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover { transform: translateY(-5px); }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .highlight {
+      background: #eef5ff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    footer {
+      background: #0b3a75;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff3b3b;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover { opacity: 0.9; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Boogaerts Boodschappen</h1>
+  <p>Supporting Local Talent & Fresh Community Products</p>
+  <button onclick="scrollToSection('local')">Discover Local Talent</button>
+</header>
+
+<section class="container grid grid-2">
+
+    <img src="imagos/ChatGPT Image Mar 27, 2026, 11_19_43 PM.png" alt="store">
+
+  <div>
+    <h2>About Us</h2>
+    <p>
+      Boogaerts Boodschappen is a community-focused supermarket dedicated to
+      fresh groceries and empowering local farmers, artisans, and young
+      entrepreneurs.
+
+       <img src="https://images.unsplash.com/photo-1542838132-92c53300491e" alt="store">
+
+        <img src="imagos/ChatGPT Image Mar 27, 2026, 11_22_54 PM.png" alt="">
+
+    </p>
+  </div>
+</section>
+
+<section id="local" class="container">
+  <h2 class="section-title">Local Talent</h2>
+  <div class="grid grid-3">
+    <div class="card fade-in">
+      <h3>Farmers</h3>
+      <p>Fresh produce sourced directly from nearby farms.</p>
+    </div>
+    <div class="card fade-in">
+      <h3>Artisans</h3>
+      <p>Handcrafted goods made with passion and tradition.</p>
+    </div>
+    <div class="card fade-in">
+      <h3>Entrepreneurs</h3>
+      <p>Supporting the next generation of local innovators.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="section-title">Featured Products</h2>
+  <div class="grid grid-4">
+    <div class="card fade-in"><img src="imagos/Jaine Galice.png"><p>Local Vegetables</p></div>
+    <div class="card fade-in"><img src="imagos/Claire Laffut.jpg"><p>Fresh Bread</p></div>
+    <div class="card fade-in"><img src="imagos/ChatGPT Image Mar 13, 2026, 02_52_29 PM.png"><p>Artisan Cheese</p></div>
+    <div class="card fade-in"><img src="imagos/pommes d'angèle.jpg"><p>Seasonal Fruit</p></div>
+  </div>
+</section>
+
+<section class="highlight">
+  <h2>Community First</h2>
+  <p>We are more than a store — we are a hub for local culture and talent.</p>
+</section>
+
+<footer>
+  <p>© 2026 Boogaerts Boodschappen</p>
+  <p>Proudly supporting local talent</p>
+  <p>FREE ENTREPRISE INITIATIVE</p>
+</footer>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
